@@ -36,27 +36,4 @@ def test_student_prompt(system_prompt: str, test_queries: list[str]) -> str:
     return json.dumps(responses_data, ensure_ascii=False, indent=2)
 
 
-available_models = {
-    "deepseek_r1": deepseek_r1,
-    "grok4_fast": grok4_fast,
 
-}
-
-teacher = create_agent(
-    model= deepseek_r1,
-    tools=[test_student_prompt]
-)
-
-
-def generate_prompt(
-        request: str, 
-        teacher_model: Literal["deepseek_r1", "grok4_fast"]
-        )->str:
-
-
-    response = teacher.invoke(
-            {
-            "messages": [SystemMessage(teacher_prompt), HumanMessage(request)]
-            })
-    
-    return response["messages"][-1].content
