@@ -21,14 +21,20 @@ gemini25_pro = ChatOpenAI(
     base_url=BASE_URL,
 )
 
+claude_sonnet45 = ChatOpenAI(
+    model="anthropic/claude-sonnet-4.5",
+    api_key=POLZA_AI_API_KEY,
+    base_url=BASE_URL,
+)
+
 deepseek_r1 = ChatOpenAI(
     model="deepseek/deepseek-r1",
     api_key=POLZA_AI_API_KEY,
     base_url=BASE_URL,
 )
 
-grok4_fast = ChatOpenAI(
-    model="x-ai/grok-4-fast",
+grok41_fast = ChatOpenAI(
+    model="x-ai/grok-4.1-fast",
     api_key=POLZA_AI_API_KEY,
     base_url=BASE_URL,
 )

@@ -42,17 +42,15 @@ available_models = {
 
 }
 
-teacher = create_agent(
-    model= deepseek_r1,
-    tools=[test_student_prompt]
-)
-
 
 def generate_prompt(
         request: str, 
-        teacher_model: Literal["deepseek_r1", "grok4_fast"]
+        teacher_model: Literal["deepseek_r1", "grok4_fast"] = "deepseek_r1"
         )->str:
-
+    teacher = create_agent(
+        model= available_models[teacher_model],
+        tools=[test_student_prompt]
+    )
 
     response = teacher.invoke(
             {
