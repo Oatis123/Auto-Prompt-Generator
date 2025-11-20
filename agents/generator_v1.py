@@ -2,7 +2,7 @@ from langchain_core.tools import tool
 from langchain_core.messages import HumanMessage, SystemMessage
 from langchain.agents import create_agent
 from .models.polza_ai import student, deepseek_r1, grok4_fast, llama4_Maverick
-from .prompts.teacher import prompt as teacher_prompt
+from .prompts.lite.teacher import prompt as teacher_prompt
 from typing import Literal
 import json
 
