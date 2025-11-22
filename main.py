@@ -1,6 +1,6 @@
-from agents.generator_v1 import generate_prompt
+from agents.generator_v2 import start_agent
+from agents.prompts.heavy.teachers import *
+from agents.generator_v2 import *
 
 
-prompt_request = input("Request for prompt: ")
-
-print(f"Final prompt: {generate_prompt(request=prompt_request)}")
+print(start_agent(agent=role_persona_agent, request="Напиши небольшой промпт для сортировщика писем", sys_prompt=role_persona_prompt))

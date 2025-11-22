@@ -9,7 +9,7 @@ BASE_URL = "https://api.polza.ai/api/v1"
 
 
 student = ChatOpenAI(
-    model="google/gemini-2.5-flash",
+    model="google/gemma-3-12b-it",
     api_key=POLZA_AI_API_KEY,
     base_url=BASE_URL,
     temperature=0.6

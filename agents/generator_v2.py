@@ -2,7 +2,7 @@ from langchain_core.tools import tool
 from langchain_core.messages import HumanMessage, SystemMessage
 from langchain.agents import create_agent
 from .models.polza_ai import student, gemini25_pro, claude_sonnet45, deepseek_r1, grok41_fast
-from .prompts.lite.teacher import prompt as teacher_prompt
+from .prompts.heavy.teachers import *
 from typing import Literal
 from threading import Thread
 import json
@@ -72,15 +72,14 @@ meta_orchestrator_agent = create_agent(
     tools=[test_student_prompt]
 )
 
-
 def start_agent(agent, request: str, sys_prompt: str)->str:
-
+    response = agent.invoke(input={"messages": [SystemMessage(sys_prompt), HumanMessage(request)]})
+    return response["messages"][-1].content
 
 
 def generate_prompt_parallel(request: str)->str:
     clarity_structure_agent_thred = Thread()
     
-
 
 def generate_prompt_linear(request: str)->str:
     pass
