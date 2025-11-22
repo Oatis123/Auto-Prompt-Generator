@@ -72,7 +72,7 @@ meta_orchestrator_agent = create_agent(
     tools=[test_student_prompt]
 )
 
-def start_agent(agent, request: str, sys_prompt: str)->str:
+def start_agent(agent, request: str, sys_prompt: str, role: str)->str:
     response = agent.invoke(input={"messages": [SystemMessage(sys_prompt), HumanMessage(request)]})
     return response["messages"][-1].content
 
